@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd ">
+	
+	<bean class="di.xml.n02.HankookTire" id="hankook"/> 	<!-- 3. car객체는 tire에 의존되어 있음. car에 넣은 객체 생성 -->
+	<bean class="di.xml.n02.KumhoTire" id="kumho"/> 		<!-- 3 -->
+	
+	<bean class="di.xml.n02.Car" id="car"> 					<!-- 1. 객체 생성  생성자 주입을 하기 위해서는 -->
+		<constructor-arg ref="hankook"/>					<!-- 	n01처럼 하는 것이 아니라 construct arg라는 것을 쓴다. -->
+	</bean> 
+	
+	<bean class="di.xml.n02.Car" id="car2">					<!-- 객체 2개인 생성자 주입 방식 -->
+		<constructor-arg ref="hankook" index="0"/>			<!-- index로 위치지정을 할 수 있다. -->
+		<constructor-arg ref="kumho" index="1"/>
+	</bean>
+	
+	<bean class="di.xml.n02.Car" id="car3">
+		<constructor-arg ref="kumho" />
+		<constructor-arg value="hello" />					<!-- 상수값을 받아오기 위해서는 value속성을 이용한다. -->
+	</bean>
+</beans>
