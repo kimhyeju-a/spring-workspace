@@ -6,11 +6,11 @@
 	   					   
 	<bean class="di.xml.n01.Car" id="car" />
 	<bean class="di.xml.n01.HankookTire" id="tire" />
-	
+	<!--
 	<bean class="di.xml.n01.HankookTire" id="hankook"/>
 	<bean class="di.xml.n01.KumhoTire" id="kumho"/>
 	
 	<bean class="di.xml.n01.Car" id="car2">
 		<property name="tire" ref="kumho" />
-	</bean>	   					   
+	</bean>	   					    -->
 </beans>

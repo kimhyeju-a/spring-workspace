@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+							http://www.springframework.org/schema/beans/spring-beans.xsd
+							http://www.springframework.org/schema/context
+							http://www.springframework.org/schema/context/spring-context.xsd ">
+	<context:annotation-config />
+	<!-- 자동주입을 하기위해서는 이게 필요하다 -->
+	<!-- 객체생성을한다.  -->
+	<bean class="di.test02.MyCalculator" id="myCalculator" />
+	<bean class="di.test02.Calculator" id="calculator" />
+			
+</beans>
+

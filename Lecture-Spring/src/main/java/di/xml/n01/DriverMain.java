@@ -9,21 +9,21 @@ public class DriverMain {
 	public static void main(String[] args) {
 		
 		ApplicationContext context = new GenericXmlApplicationContext("di-xml01.xml");
-		
+		/*
 		//방법2
 		Car car = (Car)context.getBean("car2");
 		car.prnTireBrand();
+		*/
 		
 		
 		
-		/*
 		//방법1
 		Car car = (Car)context.getBean("car");
 		Tire tire = (Tire)context.getBean("tire");
 		car.setTire(tire);
 		
 		car.prnTireBrand();
-		*/
+		
 		
 		
 		/*
