@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+	   						http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd ">
+	<bean class="aop.xml.Action" id="action"></bean>
+	<bean class="aop.xml.Programmer" id="programmer"></bean>
+	<bean class="aop.xml.Designer" id="designer"></bean>
+	<bean class="aop.xml.Manager" id="manager" />	
+
+	<aop:config>
+		<aop:pointcut expression="execution(* aop.xml.*.work())" id="pointcut01"/>
+		<aop:aspect ref="action">
+			<!-- <aop:before method="gotoOfiice" pointcut="execution(public void aop.xml.Programmer.work())" /> -->		
+				<!-- 이 공통코드는 핵심코드 전에 실행될거야 aop.xml.Programmer.work가 실행될 때 -->
+			<!-- <aop:before method="gotoOfiice" pointcut="execution(public void aop.xml.*.work())" /> -->
+				<!-- 모든클래스의 work메소드를 실행할때 -->
+			<!-- <aop:after method="getoffOffice" pointcut="execution(* aop.xml.*.work())"/> -->
+				<!-- pointcut 태그의 id을 사용하여  -->
+			<aop:before method="gotoOfiice" pointcut-ref="pointcut01" />		
+			<aop:after method="getoffOffice" pointcut-ref="pointcut01"/>
+		</aop:aspect>
+	</aop:config>
+</beans>	

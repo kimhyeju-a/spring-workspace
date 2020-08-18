@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
 @Component("area")
 public class Area {
 	@Autowired
-	@Qualifier("square")
+	@Qualifier("triangle")
 	private Figure figure;
-
+	
 	public Area() {
 		Random r = new Random();
 	}
