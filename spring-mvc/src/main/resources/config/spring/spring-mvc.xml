@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context   
+    http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="kr.co.mlec" />
+    <mvc:annotation-driven />							<!-- annotation 기법을 쓰겠다 component , serviec , autowire 등등 -->
+	<mvc:default-servlet-handler />						
+	<mvc:view-resolvers>								<!-- 요청은 서블릿이 받으면 응답은 jsp가 한다. -->
+		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" /><!-- 기본적인 폴더는 prefix 저기에 있다.  -->
+														<!-- 외부에서 이제 jsp폴더를 접근하지 못한다. -->
+														<!-- 이미지와 같은 경우는 WEB-INF 밑에 있으면 안된다. -->
+														<!-- prefix와 suffix를 뺀 나머지만 쓰자!!! -->
+	</mvc:view-resolvers>
+
+</beans>
+
